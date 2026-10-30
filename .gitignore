@@ -1,0 +1,13 @@
+# 비밀값
+.env
+
+# 카드 상품 데이터: 카드고릴라 화면을 옮겨 적은 수업용 데이터라 공개 저장소에 올리지 않음
+# 공식 상품설명서 기준으로 다시 정리한 뒤에 추가
+sql/private/
+*cards_insert*.sql
+
+# API 원본 응답, 파이썬 캐시, 맥 파일
+data/raw/
+*.json
+__pycache__/
+.DS_Store
