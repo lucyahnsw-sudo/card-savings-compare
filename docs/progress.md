@@ -52,3 +52,13 @@
   - 연회비가 계산에 빠져 있음 → 월 이익에서 연회비 ÷ 12 차감 예정
 - 9주차(JOIN, GROUP BY, HAVING) 실습을 이 DB에 적용: `sql/practice/week9_join.sql`
 - GitHub 저장소 생성, 인증키를 `.env`로 분리
+
+## 2026-10-30 · 1차 초안: DB ↔ 화면 연동
+
+- `app/server.py`: Flask API 3개
+  - `/api/meta` 소비처·은행·조건·기간 목록
+  - `/api/calc` 게스트로 넣고 VIEW로 순위 계산 후 ROLLBACK (입력값이 DB에 남지 않음)
+  - `/api/detail` 카테고리별 카드 혜택, 우대조건별 충족 여부
+- `app/static/`: 모바일 웹 프론트 (온보딩 → 입력 3단계 → 결과 → 상세, 예외 화면 포함)
+- 월 남는 돈에서 연회비 ÷ 12 차감을 API에서 먼저 반영
+- 실행: `pip install -r requirements.txt` → `python app/server.py` → http://localhost:5000

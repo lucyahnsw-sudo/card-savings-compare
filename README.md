@@ -54,18 +54,31 @@ MySQL Workbench에서 SQL 파일은 File → Open SQL Script로 열고 번개 �
 
 진행 상황은 `sql/status_check.sql` 하나로 확인한다.
 
+## 앱 실행 (1차 초안)
+
+DB를 만든 뒤 터미널에서:
+
+```bash
+pip install -r requirements.txt
+python app/server.py
+```
+
+브라우저에서 http://localhost:5000 (맥에서 5000번이 막혀 있으면 `PORT=5050 python app/server.py`).
+API와 구조는 `app/README.md`.
+
 ## 폴더
 
 ```
 sql/                 스키마, VIEW, 데이터 입력, 점검 쿼리
 sql/practice/        수업 주차별 실습을 이 DB에 적용한 것
 scripts/             API 수집 스크립트
+app/                 Flask API(server.py)와 모바일 웹 화면(static/)
 docs/progress.md     날짜별 진행 기록과 결정 사항
 ```
 
 ## 다음 작업
 
 - 고율 카드 혜택 월 한도 채우기 (지금은 비어 있어 혜택이 과대 계산됨)
-- 결과 계산에 연회비 ÷ 12 차감
+- 연회비 ÷ 12 차감을 VIEW에도 반영 (지금은 API에서만 차감)
 - 나머지 적금 47개 우대조건 분해
 - Flask 계산기 화면 (로그인 없이 입력 → 결과)
