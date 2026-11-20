@@ -53,8 +53,18 @@ MySQL Workbench에서 SQL 파일은 File → Open SQL Script로 열고 번개 �
 7. 카드 데이터 입력 (저장소 밖)
 8. `sql/05_test_users.sql` — 테스트 회원 3명과 결과 확인 쿼리
 9. `sql/06_card_images.sql` — 카드 이미지 출처 컬럼 추가 (7번 카드 데이터가 있어야 반영됨)
+10. `sql/07_queries.sql` — 기본 조회(A1~A7), 집계 분석(B1~B7), 테이블 연결(C1~C9)
 
 진행 상황은 `sql/status_check.sql` 하나로 확인한다.
+
+### 실행 결과 캡처
+
+```bash
+pip3 install -r requirements.txt
+python3 scripts/capture_results.py
+```
+
+`07_queries.sql`의 쿼리를 내 DB에서 하나씩 실행하고, 쿼리마다 질문·SQL·결과 표를 이미지 한 장으로 `results/`에 저장한다. 목차는 `results/README.md`.
 
 ## 앱 실행 (1차 초안)
 
@@ -73,7 +83,8 @@ API와 구조는 `app/README.md`.
 ```
 sql/                 스키마, VIEW, 데이터 입력, 점검 쿼리
 sql/practice/        수업 주차별 실습을 이 DB에 적용한 것
-scripts/             API 수집 스크립트
+scripts/             API 수집, 실행 결과 캡처 스크립트
+results/             SQL 실행 결과 이미지 (capture_results.py로 생성)
 app/                 Flask API(server.py)와 모바일 웹 화면(static/)
 docs/progress.md     날짜별 진행 기록과 결정 사항
 docs/card_images.csv 카드별 공식 페이지와 이미지 확보 상태
