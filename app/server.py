@@ -337,4 +337,5 @@ def static_files(name):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=True)
+    # 기본은 내 컴퓨터에서만 열림. 같은 와이파이 휴대폰으로 보려면 HOST=0.0.0.0
+    app.run(host=os.environ.get("HOST", "127.0.0.1"), port=int(os.environ.get("PORT", 5000)), debug=True)
