@@ -11,3 +11,7 @@ data/raw/
 *.json
 __pycache__/
 .DS_Store
+
+# 카드 이미지 파일: 카드사 저작물이라 올리지 않음 (출처는 docs/card_images.csv)
+card_images/
+*.mhtml

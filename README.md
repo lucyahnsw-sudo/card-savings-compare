@@ -36,6 +36,7 @@
 | 은행 적금 상품, 기간별 금리 | [금융감독원 금융상품한눈에 Open API](https://finlife.fss.or.kr) | 스크립트로 받음 |
 | 적금 우대조건 (항목별로 쪼갠 것) | 위 API의 우대조건 원문을 직접 분해 | `sql/03_pref_conditions.sql` |
 | 카드 상품, 혜택 | 수업용으로 카드고릴라 화면을 옮겨 적음 | **포함 안 함** |
+| 카드 이미지 | 카드사 공식 상품 페이지 | 이미지 파일은 **포함 안 함**. 출처 주소와 확인일만 `docs/card_images.csv`, `sql/06_card_images.sql` |
 
 카드 데이터는 공개 서비스에 쓰지 않는다. 카드사 공식 상품설명서 기준으로 다시 정리한 뒤 출처 URL과 기준일을 함께 넣을 예정이다. 카드 상품 정보를 통합 제공하는 공개 API는 없다(2026-10 기준).
 
@@ -51,6 +52,7 @@ MySQL Workbench에서 SQL 파일은 File → Open SQL Script로 열고 번개 �
 6. `sql/04_categories.sql` — 카드사, 혜택 카테고리
 7. 카드 데이터 입력 (저장소 밖)
 8. `sql/05_test_users.sql` — 테스트 회원 3명과 결과 확인 쿼리
+9. `sql/06_card_images.sql` — 카드 이미지 출처 컬럼 추가 (7번 카드 데이터가 있어야 반영됨)
 
 진행 상황은 `sql/status_check.sql` 하나로 확인한다.
 
@@ -74,6 +76,7 @@ sql/practice/        수업 주차별 실습을 이 DB에 적용한 것
 scripts/             API 수집 스크립트
 app/                 Flask API(server.py)와 모바일 웹 화면(static/)
 docs/progress.md     날짜별 진행 기록과 결정 사항
+docs/card_images.csv 카드별 공식 페이지와 이미지 확보 상태
 ```
 
 ## 다음 작업
@@ -81,4 +84,6 @@ docs/progress.md     날짜별 진행 기록과 결정 사항
 - 고율 카드 혜택 월 한도 채우기 (지금은 비어 있어 혜택이 과대 계산됨)
 - 연회비 ÷ 12 차감을 VIEW에도 반영 (지금은 API에서만 차감)
 - 나머지 적금 47개 우대조건 분해
-- Flask 계산기 화면 (로그인 없이 입력 → 결과)
+- 카드 이미지 나머지 17장 확보, 앱 화면에 `image_url` 표시
+- 분석 질문 3개와 SQL 답, 실행 결과 캡처, 그래프와 인사이트 (과제 제출용)
+- 결과 보고서, 발표 자료
